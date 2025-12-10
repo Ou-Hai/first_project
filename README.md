@@ -1,77 +1,107 @@
-# Project overview
-...
+# 📦 Supply Chain & Operational Insights Optimization
 
-# Installation
+## 📚 Table of Contents  
+- [📦 Project Description](#-project-description)  
+- [📊 Objectives](#-objectives)  
+- [🧩 Dataset Overview](#-dataset-overview)  
+- [🔗 Source](#-source)  
+- [🛠️ Tech Stack & Tools](#️-tech-stack--tools)  
+- [🔧 Data Processing](#-data-processing)  
+- [🧪 Hypotheses](#-hypotheses)  
+- [📈 Analysis Summary (To Be Completed)](#-analysis-summary-to-be-completed)
 
-1. **Clone the repository**:
+---
 
-```bash
-git clone https://github.com/YourUsername/repository_name.git
-```
+## 📦 Project Description  
+This project analyzes a supply chain dataset containing customers, orders, order items, product details, and payment information.  
+The goal is to understand logistics performance, shipping cost drivers, product characteristics, and revenue distribution across categories.
 
-2. **Install UV**
+The workflow includes data cleaning, feature engineering, and validating business hypotheses using Python and Tableau.
 
-If you're a MacOS/Linux user type:
+---
 
-```bash
-curl -LsSf https://astral.sh/uv/install.sh | sh
-```
+## 📊 Objectives  
+✔️ Build an integrated analysis-ready supply chain dataset  
+✔️ Investigate logistics efficiency and delivery performance  
+✔️ Analyze product attribute impact on shipping cost and timing  
+✔️ Identify high-value categories and revenue drivers  
+✔️ Validate six hypotheses using statistical and visual methods  
 
-If you're a Windows user open an Anaconda Powershell Prompt and type :
+---
 
-```bash
-powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
-```
+## 🧩 Dataset Overview  
 
-3. **Create an environment**
+Five relational datasets are used in this project:
 
-```bash
-uv venv 
-```
+| Dataset | Description |
+|--------|-------------|
+| **df_Customers** | Customer demographic and geographic data |
+| **df_Orders** | Order timestamps and lifecycle information |
+| **df_OrderItems** | Product-level pricing and shipping details |
+| **df_Products** | Product dimensions, weight, and category |
+| **df_Payments** | Payment values and payment types |
 
-3. **Activate the environment**
+---
 
-If you're a MacOS/Linux user type (if you're using a bash shell):
+## 🔗 Source  
+All five CSV files were sourced from **Kaggle**.
 
-```bash
-source ./venv/bin/activate
-```
+---
 
-If you're a MacOS/Linux user type (if you're using a csh/tcsh shell):
+## 🛠️ Tech Stack & Tools  
 
-```bash
-source ./venv/bin/activate.csh
-```
+<p align="left">
+  <img src="https://img.shields.io/badge/Python-3.10-blue?logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/pandas-Data%20Analysis-150458?logo=pandas&logoColor=white" />
+  <img src="https://img.shields.io/badge/numpy-Numerical%20Computing-013243?logo=numpy&logoColor=white" />
+  <img src="https://img.shields.io/badge/Jupyter-Notebook-F37626?logo=jupyter&logoColor=white" />
+  <img src="https://img.shields.io/badge/Matplotlib-Visualization-11557C" />
+  <img src="https://img.shields.io/badge/Tableau-Dashboard-1F5FB2?logo=tableau&logoColor=white" />
+  <img src="https://img.shields.io/badge/uv-Environment-4C1" />
+</p>
 
-If you're a Windows user type:
+---
 
-```bash
-.\venv\Scripts\activate
-```
+## 🔧 Data Processing  
 
-4. **Install dependencies**:
+### 1. Data Cleaning
+- Converted timestamp fields to `datetime`  
+- Removed invalid or canceled orders  
+- Resolved duplicates  
+- Standardized data types  
 
-```bash
-uv pip install -r requirements.txt
-```
+### 2. Feature Engineering
+Computed fields:
+- `delivery_time_days`  
+- `product_volume = length × width × height`  
+- `shipping_cost_ratio = shipping_cost / price`  
+- `revenue_per_order`  
 
-# Questions 
-...
+### 3. Merging the Five Datasets
+Merged using relational keys:
+- `customer_id`  
+- `order_id`  
+- `product_id`  
 
-# Dataset 
-...
+Result: A fully consolidated dataset for analytics.
 
-## Main dataset issues
+---
 
-- ...
-- ...
-- ...
+## 🧪 Hypotheses  
 
-## Solutions for the dataset issues
-...
+### H1: Heavier products incur higher shipping costs.  
 
-# Conclussions
-...
+### H2: Larger (high-volume) products take longer to deliver.  
 
-# Next steps
-...
+### H3: Delivery speed differs across customer states.  
+
+### H4: Some product categories have higher logistics cost ratios.  
+
+### H5: Product category strongly influences total revenue.  
+
+### H6: Higher shipping cost is associated with longer delivery time.  
+
+---
+
+## 📈 Analysis Summary (To Be Completed)  
+> Final conclusions and visualizations will be added after completing the analytical steps.
